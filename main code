@@ -8,3 +8,8 @@ data.rename(columns={'fixed acidity': 'fixed_acidity', 'volatile acidity': 'vola
                    'citric acid':'citric_acid','residual sugar':'residual_sugar',
                    'free sulfur dioxide':'free_sulfur_dioxide','total sulfur dioxide':'total_sulfur_dioxide'}, inplace=True)
 data.info()
+data.isnull().sum()
+df = data.copy() 
+print("Quality points:", data["quality"].unique())
+print(data["quality"].value_counts())
+df.describe()
