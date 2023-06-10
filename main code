@@ -29,3 +29,50 @@ for col, ax in zip(numerical_cols, axs.flat):
 
 plt.tight_layout() 
 plt.show()
+fig, axes = plt.subplots(2, figsize = (15, 10)) 
+axes = axes.flatten()
+
+sns.scatterplot(ax = axes[0],
+                x = "free_sulfur_dioxide",
+                y = "alcohol",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'free_sulfur_dioxide' and 'alcohol'");
+
+
+sns.scatterplot(ax = axes[1],
+                x = "total_sulfur_dioxide",
+                y = "alcohol",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'total_sulfur_dioxide' and 'alcohol'");
+sns.scatterplot(x = "residual_sugar",
+                y = "pH",
+                hue = "quality",
+                data = df).set(title = "Relationship between 'residual_sugar' and 'pH'");
+sns.scatterplot(x = "alcohol",
+                y = "pH",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'alcohol' and 'pH'");
+sns.scatterplot(x = "density",
+                y = "fixed_acidity",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'density' and 'fixed_acidity'");
+fig, axes = plt.subplots(2, figsize=(15, 10))
+axes = axes.flatten()
+
+sns.scatterplot(ax = axes[0],
+                x = "fixed_acidity",
+                y = "pH",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'fixed_acidity' and 'pH'");
+
+sns.scatterplot(ax = axes[1],
+                x = "volatile_acidity",
+                y = "pH",
+                hue = "quality",
+                palette = "magma",
+                data = df).set(title = "Relationship between 'volatile_acidity' and 'pH'");
