@@ -13,3 +13,19 @@ df = data.copy()
 print("Quality points:", data["quality"].unique())
 print(data["quality"].value_counts())
 df.describe()
+df.rename(columns = {"fixed acidity": "fixed_acidity", "volatile acidity": "volatile_acidity",
+                    "citric acid": "citric_acid", "residual sugar": "residual_sugar",
+                    "chlorides": "chlorides", "free sulfur dioxide": "free_sulfur_dioxide",
+                    "total sulfur dioxide": "total_sulfur_dioxide"}, inplace = True)
+numerical_cols = data.select_dtypes(include='number').columns.tolist()
+
+fig, axs = plt.subplots(nrows=4, ncols=3, figsize=(15, 20))
+
+for col, ax in zip(numerical_cols, axs.flat): 
+    sns.histplot(data=data, x=col, kde=True, ax=ax, color="#A163CF")
+    ax.set(title=col)
+    if ax.get_subplotspec().is_last_row():
+        ax.set(xlabel=col)
+
+plt.tight_layout() 
+plt.show()
