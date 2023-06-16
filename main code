@@ -76,3 +76,20 @@ sns.scatterplot(ax = axes[1],
                 hue = "quality",
                 palette = "magma",
                 data = df).set(title = "Relationship between 'volatile_acidity' and 'pH'");
+plt.figure(figsize = [20, 10], facecolor = 'white')
+sns.heatmap(df.corr(), annot = True, linewidths = 2, cmap = "magma");
+from tabulate import tabulate
+
+model_accuracies = {
+    'KNN': 0.7675,
+    'Logistic Regression': 0.7275,
+    'Decision Tree': 0.6875,
+    'Random Forest': 0.74,
+    'Gradient Boosting Machine': 0.7975,
+    'Light Gradient Boosting Machine(LGBM)': 0.815
+}
+
+table = [[model, accuracy] for model, accuracy in model_accuracies.items()]
+
+print(tabulate(table, headers=['Model', 'Accuracy'], tablefmt='fancy_grid'))
+                
